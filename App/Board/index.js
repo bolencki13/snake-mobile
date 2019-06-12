@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import PropTypes from 'prop-types'
 import { isValidInput } from '../../services/helper'
 import Cell from './Cell'
@@ -51,7 +51,24 @@ class Board extends React.Component {
       )
     }
 
-    return <View style={Styles.container}>{board}</View>
+    return (
+      <View style={Styles.container}>
+        {!this.props.game.isPlaying ? (
+          <View style={Styles.gameOver}>
+            <Text style={Styles.gameOverText}>
+              {this.props.game.hasWon ? "You've won!" : 'Game Over :('}
+            </Text>
+            <Button
+              style={Styles.gameOverButton}
+              title="Play Again"
+              onPress={() => this.props.game.reset()}
+            />
+          </View>
+        ) : (
+          board
+        )}
+      </View>
+    )
   }
 }
 

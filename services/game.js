@@ -4,7 +4,7 @@ const HOCGameService = Component => {
   class GameService extends React.Component {
     state = {
       isPlaying: true,
-      hasWon: true
+      hasWon: false
     }
 
     setPlaying = newPlaying => {
