@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import { isValidInput } from '../../services/helper'
+import Cell from './Cell'
 import Styles from './styles'
 
 class Board extends React.Component {
@@ -18,7 +19,7 @@ class Board extends React.Component {
       // const isFoodBox =
       //   this.props.food.origin.x === w && this.props.food.origin.y === h
 
-      row.push(<View key={`w-${w}`} style={Styles.cell}></View>)
+      row.push(<Cell key={`w-${w}`}></Cell>)
     }
 
     return row
