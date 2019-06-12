@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import { isValidInput } from '../../services/helper'
 import Cell from './Cell'
 import Styles from './styles'
+import SnakeService from '../../services/snake'
+import FoodService from '../../services/food'
+import GameService from '../../services/game'
 
 class Board extends React.Component {
   generateCols = h => {
@@ -71,4 +74,14 @@ Board.propTypes = {
   }).isRequired
 }
 
-export default Board
+export default GameService(
+  FoodService({
+    x: 5,
+    y: 5
+  })(
+    SnakeService({
+      x: 0,
+      y: 0
+    })(Board)
+  )
+)
