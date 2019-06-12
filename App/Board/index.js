@@ -65,7 +65,10 @@ class Board extends React.Component {
             />
           </View>
         ) : (
-          board
+          <React.Fragment>
+            <Text>Score: {this.props.game.score}</Text>
+            {board}
+          </React.Fragment>
         )}
       </View>
     )
